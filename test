@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aku Suka Kamu</title>
+    <style>
+        body {
+            background-color: #FFC0CB;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            color: #FF69B4;
+            margin-top: 50px;
+        }
+        button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aku suka kamu! <br> Mau jadi pacar aku?</h1>
+
+    <button onclick="kirimPesan()">Yes</button>
+    <button onclick="pindahButton(this)">No</button>
+
+    <script>
+        function kirimPesan() {
+            const nomor = "6281220526560";  // Ganti dengan nomor WhatsApp kamu
+            const pesan = "Hi! Aku sudah jatuh cinta sama kamu, ayo kita jadian sekarang!";
+            const link = `https://api.whatsapp.com/send?phone=${nomor}&text=${encodeURIComponent(pesan)}`;
+            window.open(link, '_blank');
+        }
+
+        function pindahButton(button) {
+            const randomX = Math.random() * (window.innerWidth - button.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        }
+    </script>
+
+</body>
+</html>
